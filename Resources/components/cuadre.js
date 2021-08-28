@@ -15,7 +15,7 @@ Vue.component("cuadre", {
 			<div class="row row-cols-2 mx-auto my-3 justify-content-center">
 				<div class="col-6">
 					<div class="form-floating mb-3">
-						<input type="text" v-model="caja" class="form-control" placeholder="caja" />
+						<input type="text" @keyup.enter="cuadre" v-model="caja" class="form-control" placeholder="caja" />
 						<label for="caja">Caja</label>
 					</div>
 				</div>
@@ -23,19 +23,19 @@ Vue.component("cuadre", {
 			<div class="row row-cols-2 mx-auto my-3 justify-content-md-center">
 				<div class="col-4">
 					<div class="form-floating mb-3">
-						<input type="text" v-model="billetes" class="form-control" placeholder="billetes" />
+						<input type="text" @keyup.enter="cuadre" v-model="billetes" class="form-control" placeholder="billetes" />
 						<label for="billetes"> Billetes</label>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-floating mb-3">
-						<input type="text" v-model="monedas" class="form-control" placeholder="monedas" />
+						<input type="text" @keyup.enter="cuadre" v-model="monedas" class="form-control" placeholder="monedas" />
 						<label for="monedas"> Monedas</label>
 					</div>
 				</div>
 				<div class="col-4">
 					<div class="form-floating mb-3">
-						<input type="text" v-model="pendientes" class="form-control" placeholder="pendientes" />
+						<input type="text" @keyup.enter="cuadre" v-model="pendientes" class="form-control" placeholder="pendientes" />
 						<label for="pendientes">Pendientes</label>
 					</div>
 				</div>
@@ -51,11 +51,10 @@ Vue.component("cuadre", {
 	},
 	methods: {
 		cuadre() {
-			/* for (let property in data) {
-				if (property === '' || property === null) {
-					property = 0;
-				}
-			} */
+			if (this.caja == '' || null) {
+				this.mensaje = 'La caja no pueder estar vacia';
+			}
+
 			this.total = parseFloat(this.billetes) + parseFloat(this.monedas) + parseFloat(this.pendientes);
 			let diferencia = this.total - this.caja;
 			if (this.total < this.caja) {
@@ -69,5 +68,6 @@ Vue.component("cuadre", {
 			}
 		},
 		decimales: (number) => Math.abs(number.toFixed(2)),
+		
 	},
 });
