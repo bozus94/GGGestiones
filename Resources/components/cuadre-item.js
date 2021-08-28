@@ -20,27 +20,32 @@ Vue.component("cuadre-item", {
 	methods: {
 		calculate() {
 			
-			this.verifyAttributes();
+			this.SetAttributes();
 
-			this.total = parseFloat(this.billetes) + parseFloat(this.monedas) + parseFloat(this.pendientes);
-			let diferencia = this.total - this.caja;
-			if (this.total < this.caja) {
-				this.mensaje = `Te faltan ${this.decimales(diferencia)}€`;
+			if (this.caja === '' || this.caja === null || this.caja == 0) {
+
+				this.mensaje = 'La caja no puede ser igual a 0';
+				return false;
+
+			} else {
+
+				this.total = parseFloat(this.billetes) + parseFloat(this.monedas) + parseFloat(this.pendientes);
+
+				let diferencia = this.total - this.caja;
+				if (this.total < this.caja) {
+					this.mensaje = `Te faltan ${this.decimales(diferencia)}€`;
+				}
+				if (this.total == this.caja) {
+					this.mensaje = `Muy bien, Tienes cuadrado!`;
+				}
+				if (this.total > this.caja) {
+					this.mensaje = `Muy bien, Tienes cuadrado! y te sobran ${this.decimales(diferencia)}€`;
+				}
 			}
-			if (this.total == this.caja) {
-				this.mensaje = `Muy bien, Tienes cuadrado!`;
-			}
-			if (this.total > this.caja) {
-				this.mensaje = `Muy bien, Tienes cuadrado! y te sobran ${this.decimales(diferencia)}€`;
-			}
+			
 		},
 		decimales: (number) => Math.abs(number.toFixed(2)),
-		verifyAttributes() {
-			if (this.caja == '' || null) {
-				this.mensaje = 'La caja no pueder estar vacia';
-				return false;
-			}
-
+		SetAttributes() {
 			if (this.billetes === '' || this.billetes === null) {
 				this.billetes = 0;
 			}
