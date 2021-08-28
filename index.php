@@ -24,13 +24,13 @@
         </div>
         <div class="tab-content mx-auto" id="v-pills-tabContent">
           <div class="tab-pane fade show active" id="v-pills-envios" role="tabpanel" aria-labelledby="v-pills-envios-tab">
-            <cuadre type='envios'></cuadre>
+            <cuadre-item cuadre="Envios"></cuadre-item>
           </div>
           <div class="tab-pane fade" id="v-pills-loteria" role="tabpanel" aria-labelledby="v-pills-loteria-tab">
-            <cuadre type='loteria'></cuadre>
+            <cuadre-item cuadre="Loteria"></cuadre-item>
           </div>
           <div class="tab-pane fade" id="v-pills-locutorio" role="tabpanel" aria-labelledby="v-pills-locutorio-tab">
-            <cuadre type='locutorio'></cuadre>
+            <cuadre-item cuadre="Locutorio"></cuadre-item>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
   </div>
 
   <script src="/Resources/js/vueDev.js"></script>
-  <script src="/Resources/components/cuadre.js"></script>
+  <script src="/Resources/components/cuadre-item.js"></script>
   <script src="/Resources/js/bootstrap.bundle.min.js"></script>
   <script src="app.js"></script>
 </body>
