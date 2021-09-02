@@ -45,10 +45,15 @@ Vue.component("cuadre-item", {
 					this.mensaje.bg = 'alert-success'
 				}
 			}
+			
 		},
 		decimales: (number) => Math.abs(number.toFixed(2)),
+<<<<<<< HEAD
 		verifyAttributes() {
 
+=======
+		SetAttributes() {
+>>>>>>> a903d5c59feff12f20e102cb142de7aee098d044
 			if (this.billetes === '' || this.billetes === null) {
 				this.billetes = 0;
 			}
