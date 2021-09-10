@@ -26,7 +26,7 @@ Vue.component("cuadre-item", {
 				this.mensaje.text = 'La caja no pueder estar vacia';
 				this.mensaje.bg = 'alert-secondary';
 				return false;
-			} else if(this.caja === 0 || this.caja === '0') {
+			} else if(this.caja === 0 || this.caja === '0') {git 
 				this.mensaje.text = 'La caja no puede ser igual al 0'
 				this.mensaje.bg = 'alert-secondary'
 			} else{	
