@@ -24,9 +24,12 @@ Vue.component("cuadre-item", {
 		calculate() {
 			if (this.caja == '' || null) {
 				this.mensaje.text = 'La caja no pueder estar vacia';
-				this.mensaje.bf = 'alert-info';
+				this.mensaje.bg = 'alert-secondary';
 				return false;
-			}else{
+			} else if(this.caja === 0 || this.caja === '0') {
+				this.mensaje.text = 'La caja no puede ser igual al 0'
+				this.mensaje.bg = 'alert-secondary'
+			} else{	
 				this.verifyAttributes();
 
 				this.total = parseFloat(this.billetes) + parseFloat(this.monedas) + parseFloat(this.pendientes);
@@ -48,12 +51,7 @@ Vue.component("cuadre-item", {
 			
 		},
 		decimales: (number) => Math.abs(number.toFixed(2)),
-<<<<<<< HEAD
 		verifyAttributes() {
-
-=======
-		SetAttributes() {
->>>>>>> a903d5c59feff12f20e102cb142de7aee098d044
 			if (this.billetes === '' || this.billetes === null) {
 				this.billetes = 0;
 			}
@@ -81,7 +79,7 @@ Vue.component("cuadre-item", {
 				<div class="row row-cols-2 mx-auto my-3 justify-content-md-center align-content-center">
 					<div class="col-4">
 						<div class="form-floating mb-3">
-							<input type="text" @keyup.="calculate" v-model="billetes" class="form-control" placeholder="billetes" />
+							<input type="text" @keyup="calculate" v-model="billetes" class="form-control" placeholder="billetes" />
 							<label for="billetes"> Billetes</label>
 						</div>
 					</div>
