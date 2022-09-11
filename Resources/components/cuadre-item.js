@@ -49,13 +49,13 @@ Vue.component("cuadre-item", {
 					this.datas.mensaje.bg = 'alert-danger'
 				}
 				if (this.datas.total == this.datas.caja) {
-					this.datas.mensaje.text = `Muy bien, Tienes cuadrado!`;
+					this.datas.mensaje.text = `Cuadre correcto`;
 					this.datas.mensaje.bg = 'alert-success'
 					
 				}
 				if (this.datas.total > this.datas.caja) {
-					this.datas.mensaje.text = `Muy bien, Tienes cuadrado! y te sobran ${this.decimales(diferencia)}€`;
-					this.datas.mensaje.bg = 'alert-success'
+					this.datas.mensaje.text = `Sobran ${this.decimales(diferencia)}€`;
+					this.datas.mensaje.bg = 'alert-primary'
 				}
 			}
 			
