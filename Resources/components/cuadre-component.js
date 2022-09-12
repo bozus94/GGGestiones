@@ -1,4 +1,4 @@
-Vue.component("cuadre-item", {
+Vue.component("cuadreComponent", {
   props: {
     cuadre: {
       type: String,

@@ -37,133 +37,33 @@
             </div>
             <div class="tab-content mx-auto" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-envios" role="tabpanel" aria-labelledby="v-pills-envios-tab">
-                <cuadre-item cuadre="Envios"></cuadre-item>
+                <cuadre-component cuadre="Envios"></cuadre-component>
               </div>
               <div class="tab-pane fade" id="v-pills-loteria" role="tabpanel" aria-labelledby="v-pills-loteria-tab">
-                <cuadre-item cuadre="Loteria"></cuadre-item>
+                <cuadre-component cuadre="Loteria"></cuadre-component>
               </div>
               <div class="tab-pane fade" id="v-pills-locutorio" role="tabpanel" aria-labelledby="v-pills-locutorio-tab">
-                <cuadre-item cuadre="Locutorio"></cuadre-item>
+                <cuadre-component cuadre="Locutorio"></cuadre-component>
               </div>
             </div>
           </div>
         </div> <!-- cuadre -->
 
         <div class="tab-pane fade show active" id="nav-paquetes" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-
-          <form class="row gx-3 gy-2 align-items-center my-4 mx-auto">
-            <div class="col-sm-4">
-              <label class="visually-hidden" for="specificSizeInputName">Nombre</label>
-              <input type="text" class="form-control" id="specificSizeInputName" placeholder="Nombre">
-            </div>
-
-            <div class="col-sm-3">
-              <label class="visually-hidden" for="specificSizeSelect">Empresa</label>
-              <select class="form-select" id="specificSizeSelect">
-                <option selected>Empresa</option>
-                <option value="1">Seur</option>
-                <option value="2">Gls</option>
-              </select>
-            </div>
-
-            <div class="col-sm-3">
-              <label class="visually-hidden" for="specificSizeSelect">Paquete</label>
-              <select class="form-select" id="specificSizeSelect">
-                <option selected>Paquete</option>
-                <option value="1">Caja pequeña</option>
-                <option value="2">Caja mediana</option>
-                <option value="2">Caja grande</option>
-                <option value="1">Bolsa pequeña</option>
-                <option value="2">Bolsa mediana</option>
-                <option value="2">Bolsa grande</option>
-                <option value="1">Sobre pequeña</option>
-                <option value="2">Sobre mediana</option>
-                <option value="2">Sobre grande</option>
-              </select>
-            </div>
-
-
-            <div class="col-sm-1">
-              <button type="submit" class="btn btn btn-outline-primary">Guardar</button>
-            </div>
-          </form>
-
-          <div class="table-responsive-xs">
-            <table class="table table-hover mt-4 text-center">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Empresa</th>
-                  <th scope="col">Tipo Paquete</th>
-                  <th scope="col">Fecha</th>
-                  <th scope="col"><button type="button" class="btn btn-outline-success py-0 m-0 text-sm-center">Recoger</button></th>
-                </tr>
-              </thead>
-              <tbody class="table-group-divider">
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                    <button type="button" class="btn btn-outline-primary py-0 m-0 text-sm-center">Entregar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                    <button type="button" class="btn btn-outline-primary py-0 m-0 text-sm-center">Entregar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                    <button type="button" class="btn btn-outline-primary py-0 m-0 text-sm-center">Entregar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                    <button type="button" class="btn btn-outline-primary py-0 m-0 text-sm-center">Entregar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                    <button type="button" class="btn btn-outline-primary py-0 m-0 text-sm-center">Entregar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
+          <packages-component></packages-component>
         </div><!-- paquetes -->
 
-        <div class="tab-pane fade" id="nav-lot-prem" role="tabpanel" aria-labelledby="nav-lot-prem-tab" tabindex="0">...</div><!-- lot-pre -->
+        <div class="tab-pane fade" id="nav-lot-prem" role="tabpanel" aria-labelledby="nav-lot-prem-tab" tabindex="0">
+          <premios-component></premios-component>
+        </div><!-- lot-pre -->
 
       </div>
     </div>
 
     <script src="/Resources/js/vueDev.js"></script>
-    <script src="/Resources/components/cuadre-item.js"></script>
+    <script src="/Resources/components/cuadre-component.js"></script>
+    <script src="/Resources/components/paquetes-component.js"></script>
+    <script src="/Resources/components/premios-component.js"></script>
     <script src="/Resources/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
