@@ -5,23 +5,29 @@ Vue.component("packagesComponent", {
         name: "",
         company: "",
         type: "",
-        date: new Date().toLocaleTimeString(),
+        date: new Date().toLocaleDateString(),
       },
-      packages: [{ name: "juan gonzalez", company: "seur", type: "bolsa grande", date: "15/10/2022" }],
+      packages: [{ name: "juan gonzalez", company: "Seur", type: "bolsa grande", date: "15/10/2022" }],
     };
   },
-  methods: {},
+  created() {},
+  methods: {
+    add() {
+      this.packages.push(this.data.newPackage);
+    },
+    givePackage() {},
+  },
   template: `
     <div class="body-component">
       <form class="row gx-3 gy-2 align-items-center my-4 mx-auto">
         <div class="col-sm-4">
           <label class="visually-hidden" for="specificSizeInputName">Nombre</label>
-          <input type="text" class="form-control" id="specificSizeInputName" placeholder="Nombre" />
+          <input type="text" class="form-control" id="specificSizeInputName" placeholder="Nombre" v-model="newPackage.nombre"/>
         </div>
 
         <div class="col-sm-3">
           <label class="visually-hidden" for="specificSizeSelect">Empresa</label>
-          <select class="form-select" id="specificSizeSelect">
+          <select class="form-select" id="specificSizeSelect" v-model="newPackage.company">
             <option selected>Empresa</option>
             <option value="1">Seur</option>
             <option value="2">Gls</option>
@@ -30,22 +36,22 @@ Vue.component("packagesComponent", {
 
         <div class="col-sm-3">
           <label class="visually-hidden" for="specificSizeSelect">Paquete</label>
-          <select class="form-select" id="specificSizeSelect">
+          <select class="form-select" id="specificSizeSelect" v-model="newPackage.type">
             <option selected>Paquete</option>
-            <option value="1">Caja pequeña</option>
-            <option value="2">Caja mediana</option>
-            <option value="2">Caja grande</option>
-            <option value="1">Bolsa pequeña</option>
-            <option value="2">Bolsa mediana</option>
-            <option value="2">Bolsa grande</option>
-            <option value="1">Sobre pequeña</option>
-            <option value="2">Sobre mediana</option>
-            <option value="2">Sobre grande</option>
+            <option value="Caja pequeña">Caja pequeña</option>
+            <option value="Caja mediana">Caja mediana</option>
+            <option value="Caja grande">Caja grande</option>
+            <option value="Bolsa pequeña">Bolsa pequeña</option>
+            <option value="Bolsa mediana">Bolsa mediana</option>
+            <option value="Bolsa grande">Bolsa grande</option>
+            <option value="Sobre pequeño">Sobre pequeño</option>
+            <option value="Sobre mediano">Sobre mediano</option>
+            <option value="Sobre grande">Sobre grande</option>
           </select>
         </div>
 
         <div class="col-sm-1">
-          <button type="submit" class="btn btn btn-outline-primary">Guardar</button>
+          <button type="submit" class="btn btn btn-outline-primary" @click="add">Guardar</button>
         </div>
       </form>
 

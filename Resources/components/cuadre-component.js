@@ -37,17 +37,16 @@ Vue.component("cuadreComponent", {
         this.datas.mensaje.text = "La caja no pueder estar vacia";
         this.datas.mensaje.bg = "alert-secondary";
         return false;
-      } else if (this.datas.caja === 0 || this.datas.caja === "0") {
+      } else if (this.datas.caja === 0 || this.datas.caja === "0" || this.datas.caja == "") {
         this.datas.mensaje.text = "La caja no puede ser igual al 0";
         this.datas.mensaje.bg = "alert-secondary";
-      } else {
-        this.verifyAttributes();
-        localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
-
-        this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas) + parseFloat(this.datas.pendientes);
-        let diferencia = this.datas.total - this.datas.caja;
-        this.checkCash(diferencia);
       }
+      this.verifyAttributes();
+      localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
+
+      this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas) + parseFloat(this.datas.pendientes);
+      let diferencia = this.datas.total - this.datas.caja;
+      this.checkCash(diferencia);
     },
     checkCash(diferencia) {
       if (this.datas.total < this.datas.caja) {
