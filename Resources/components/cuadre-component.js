@@ -16,7 +16,6 @@ Vue.component("cuadreComponent", {
       datas: {
         billetes: "",
         monedas: "",
-        /* pendientes: "", */
         total: 0,
         caja: "",
         mensaje: {
@@ -44,7 +43,7 @@ Vue.component("cuadreComponent", {
       this.verifyAttributes();
       localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
 
-      this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas) + parseFloat(this.datas.pendientes);
+      this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas);
       let diferencia = this.datas.total - this.datas.caja;
       this.checkCash(diferencia);
     },
@@ -70,9 +69,6 @@ Vue.component("cuadreComponent", {
       if (this.datas.monedas === "" || this.datas.monedas === null) {
         this.datas.monedas = 0;
       }
-    /*   if (this.datas.pendientes === "" || this.datas.pendientes === null) {
-        this.datas.pendientes = 0;
-      } */
     },
   },
   //html
@@ -107,6 +103,5 @@ Vue.component("cuadreComponent", {
 				{{datas.mensaje.text}}
 			</div>
 		</div>
-		
 	</div>`,
 });
