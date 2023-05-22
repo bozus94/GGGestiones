@@ -15,8 +15,8 @@ Vue.component("cuadreComponent", {
     return {
       datas: {
         billetes: "",
-        monedas: "",/* 
-        pendientes: "", */
+        monedas: "",
+        /* pendientes: "", */
         total: 0,
         caja: "",
         mensaje: {
@@ -101,13 +101,7 @@ Vue.component("cuadreComponent", {
 							<label for="monedas"> Monedas</label>
 						</div>
 					</div>
-					/* <div class="col-4">
-						<div class="form-floating mb-3">
-							<input typea="text" @keyup="calculate" v-model="datas.pendientes" class="form-control" placeholder="pendientes" />
-							<label for="pendientes">Pendientes</label>
-						</div>
-					</div> */
-				</div>
+        </div>
 			</div>
 			<div class="alert text-center fs-5 mb-0" role="alert" :class="[datas.mensaje.bg]">
 				{{datas.mensaje.text}}
