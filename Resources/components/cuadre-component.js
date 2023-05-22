@@ -15,8 +15,8 @@ Vue.component("cuadreComponent", {
     return {
       datas: {
         billetes: "",
-        monedas: "",
-        pendientes: "",
+        monedas: "",/* 
+        pendientes: "", */
         total: 0,
         caja: "",
         mensaje: {
@@ -70,9 +70,9 @@ Vue.component("cuadreComponent", {
       if (this.datas.monedas === "" || this.datas.monedas === null) {
         this.datas.monedas = 0;
       }
-      if (this.datas.pendientes === "" || this.datas.pendientes === null) {
+    /*   if (this.datas.pendientes === "" || this.datas.pendientes === null) {
         this.datas.pendientes = 0;
-      }
+      } */
     },
   },
   //html
@@ -89,24 +89,24 @@ Vue.component("cuadreComponent", {
 					</div>
 				</div>
 				<div class="row row-cols-2 mx-auto my-3 justify-content-md-center align-content-center">
-					<div class="col-4">
+					<div class="col-6">
 						<div class="form-floating mb-3">
 							<input type="text" @keyup="calculate" v-model="datas.billetes" class="form-control" placeholder="billetes" />
 							<label for="billetes"> Billetes</label>
 						</div>
 					</div>
-					<div class="col-4">
+					<div class="col-6">
 						<div class="form-floating mb-3">
 							<input type="text" @keyup="calculate" v-model="datas.monedas" class="form-control" placeholder="monedas" />
 							<label for="monedas"> Monedas</label>
 						</div>
 					</div>
-					<div class="col-4">
+					/* <div class="col-4">
 						<div class="form-floating mb-3">
 							<input typea="text" @keyup="calculate" v-model="datas.pendientes" class="form-control" placeholder="pendientes" />
 							<label for="pendientes">Pendientes</label>
 						</div>
-					</div>
+					</div> */
 				</div>
 			</div>
 			<div class="alert text-center fs-5 mb-0" role="alert" :class="[datas.mensaje.bg]">
