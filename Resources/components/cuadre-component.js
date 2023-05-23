@@ -43,6 +43,13 @@ Vue.component("cuadreComponent", {
 			/* this.verifyAttributes(); */
 			localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
 
+			if (this.datas.billetes === "" || this.datas.billetes === null) {
+				this.datas.billetes = 0;
+			}
+			if (this.datas.monedas === "" || this.datas.monedas === null) {
+				this.datas.monedas = 0;
+			}
+
 			this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas);
 			let diferencia = this.datas.total - this.datas.caja;
 			this.checkCash(diferencia);
@@ -62,14 +69,14 @@ Vue.component("cuadreComponent", {
 			}
 		},
 		decimales: (number) => Math.abs(number.toFixed(2)),
-		/* verifyAttributes() {
-      if (this.datas.billetes === "" || this.datas.billetes === null) {
-        this.datas.billetes = 0;
-      }
-      if (this.datas.monedas === "" || this.datas.monedas === null) {
-        this.datas.monedas = 0;
-      }
-    }, */
+		verifyAttributes() {
+			if (this.datas.billetes === 0 || this.datas.billetes === null) {
+				this.datas.billetes = "";
+			}
+			if (this.datas.monedas === 0 || this.datas.monedas === null) {
+				this.datas.monedas = "";
+			}
+		},
 	},
 	//html
 	template: `<div class="px-4 py-5 my-5 text-center">
@@ -87,13 +94,13 @@ Vue.component("cuadreComponent", {
 				<div class="row row-cols-2 mx-auto my-3 justify-content-md-center align-content-center">
 					<div class="col-6">
 						<div class="form-floating mb-3">
-							<input type="text" @keyup="calculate" v-model="datas.billetes" class="form-control" placeholder="billetes" />
+							<input type="text" @focus="verifyAttributes"  v-model="datas.billetes" class="form-control" placeholder="billetes" />
 							<label for="billetes"> Billetes</label>
 						</div>
 					</div>
 					<div class="col-6">
 						<div class="form-floating mb-3">
-							<input type="text" @keyup="calculate" v-model="datas.monedas" class="form-control" placeholder="monedas" />
+							<input type="text" @focus="verifyAttributes"  @keyup="calculate" v-model="datas.monedas" class="form-control" placeholder="monedas" />
 							<label for="monedas"> Monedas</label>
 						</div>
 					</div>
