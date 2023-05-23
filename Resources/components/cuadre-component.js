@@ -1,78 +1,78 @@
 Vue.component("cuadreComponent", {
-  props: {
-    cuadre: {
-      type: String,
-    },
-  },
-  created() {
-    console.log(`cuadre${this.cuadre}`);
-    const data = JSON.parse(localStorage.getItem(`cuadre${this.cuadre}`));
-    if (data !== null) {
-      this.datas = data;
-    }
-  },
-  data() {
-    return {
-      datas: {
-        billetes: "",
-        monedas: "",
-        total: 0,
-        caja: "",
-        mensaje: {
-          text: "Introduzca los datos",
-          bg: "alert-secondary",
-        },
-      },
-    };
-  },
-  computed: {
-    capitalize() {
-      return this.cuadre.charAt(0).toUpperCase() + this.cuadre.slice(1);
-    },
-  },
-  methods: {
-    calculate() {
-      if (this.datas.caja == "" || null) {
-        this.datas.mensaje.text = "La caja no pueder estar vacia";
-        this.datas.mensaje.bg = "alert-secondary";
-        return false;
-      } else if (this.datas.caja === 0 || this.datas.caja === "0" || this.datas.caja == "") {
-        this.datas.mensaje.text = "La caja no puede ser igual al 0";
-        this.datas.mensaje.bg = "alert-secondary";
-      }
-      this.verifyAttributes();
-      localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
+	props: {
+		cuadre: {
+			type: String,
+		},
+	},
+	created() {
+		console.log(`cuadre${this.cuadre}`);
+		const data = JSON.parse(localStorage.getItem(`cuadre${this.cuadre}`));
+		if (data !== null) {
+			this.datas = data;
+		}
+	},
+	data() {
+		return {
+			datas: {
+				billetes: "",
+				monedas: "",
+				total: 0,
+				caja: "",
+				mensaje: {
+					text: "Introduzca los datos",
+					bg: "alert-secondary",
+				},
+			},
+		};
+	},
+	computed: {
+		capitalize() {
+			return this.cuadre.charAt(0).toUpperCase() + this.cuadre.slice(1);
+		},
+	},
+	methods: {
+		calculate() {
+			if (this.datas.caja == "" || null) {
+				this.datas.mensaje.text = "La caja no pueder estar vacia";
+				this.datas.mensaje.bg = "alert-secondary";
+				return false;
+			} else if (this.datas.caja === 0 || this.datas.caja === "0" || this.datas.caja == "") {
+				this.datas.mensaje.text = "La caja no puede ser igual al 0";
+				this.datas.mensaje.bg = "alert-secondary";
+			}
+			/* this.verifyAttributes(); */
+			localStorage.setItem(`cuadre${this.cuadre}`, JSON.stringify(this.datas));
 
-      this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas);
-      let diferencia = this.datas.total - this.datas.caja;
-      this.checkCash(diferencia);
-    },
-    checkCash(diferencia) {
-      if (this.datas.total < this.datas.caja) {
-        this.datas.mensaje.text = `Faltan ${this.decimales(diferencia)}€`;
-        this.datas.mensaje.bg = "alert-danger";
-      }
-      if (this.datas.total == this.datas.caja) {
-        this.datas.mensaje.text = `Cuadre correcto`;
-        this.datas.mensaje.bg = "alert-success";
-      }
-      if (this.datas.total > this.datas.caja) {
-        this.datas.mensaje.text = `Sobran ${this.decimales(diferencia)}€`;
-        this.datas.mensaje.bg = "alert-primary";
-      }
-    },
-    decimales: (number) => Math.abs(number.toFixed(2)),
-    verifyAttributes() {
+			this.datas.total = parseFloat(this.datas.billetes) + parseFloat(this.datas.monedas);
+			let diferencia = this.datas.total - this.datas.caja;
+			this.checkCash(diferencia);
+		},
+		checkCash(diferencia) {
+			if (this.datas.total < this.datas.caja) {
+				this.datas.mensaje.text = `Faltan ${this.decimales(diferencia)}€`;
+				this.datas.mensaje.bg = "alert-danger";
+			}
+			if (this.datas.total == this.datas.caja) {
+				this.datas.mensaje.text = `Cuadre correcto`;
+				this.datas.mensaje.bg = "alert-success";
+			}
+			if (this.datas.total > this.datas.caja) {
+				this.datas.mensaje.text = `Sobran ${this.decimales(diferencia)}€`;
+				this.datas.mensaje.bg = "alert-primary";
+			}
+		},
+		decimales: (number) => Math.abs(number.toFixed(2)),
+		/* verifyAttributes() {
       if (this.datas.billetes === "" || this.datas.billetes === null) {
         this.datas.billetes = 0;
       }
       if (this.datas.monedas === "" || this.datas.monedas === null) {
         this.datas.monedas = 0;
       }
-    },
-  },
-  //html
-  template: `<div class="px-4 py-5 my-5 text-center">
+    }, */
+	},
+	//html
+	template: `<div class="px-4 py-5 my-5 text-center">
 		<div class="card boder-light">
 			<div class="card-header fs-4 text-center"> {{capitalize}} </div>
 			<div class="card-body fs-">
