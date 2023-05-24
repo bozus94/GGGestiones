@@ -112,6 +112,5 @@ Vue.component("cuadreComponent", {
 				{{datas.mensaje.text}}
 			</div>
 		</div>
-		
 	</div>`,
 });
