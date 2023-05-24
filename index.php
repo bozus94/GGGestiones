@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <!--<nav>
+      <!-- <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link active" id="nav-cuadre-tab" data-bs-toggle="tab" data-bs-target="#nav-cuadre" type="button" role="tab" aria-controls="nav-cuadre" aria-selected="true">Cuadre</button>
           <button class="nav-link" id="nav-paquetes-tab" data-bs-toggle="tab" data-bs-target="#nav-paquetes" type="button" role="tab" aria-controls="nav-paquetes" aria-selected="false">Paquetes</button>
@@ -49,7 +49,7 @@
         <div class="tab-pane fade" id="nav-cuadre" role="tabpanel" aria-labelledby="nav-cuadre-tab" tabindex="0">
         </div>
 
-         <div class="tab-pane fade show active" id="nav-paquetes" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="nav-paquetes" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
           <packages-component></packages-component>
         </div>
 
@@ -57,15 +57,15 @@
           <premios-component></premios-component>
         </div>
 
-      </div> 
-      </div>-->
+      </div> -->
+    </div>
 
-      <script src="/Resources/js/vueDev.js"></script>
-      <script src="/Resources/components/cuadre-component.js"></script>
-      <!--     <script src="/Resources/components/paquetes-component.js"></script>
+    <script src="/Resources/js/vueDev.js"></script>
+    <script src="/Resources/components/cuadre-component.js"></script>
+    <!--     <script src="/Resources/components/paquetes-component.js"></script>
     <script src="/Resources/components/premios-component.js"></script> -->
-      <script src="/Resources/js/bootstrap.min.js"></script>
-      <script src="app.js"></script>
+    <script src="/Resources/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
